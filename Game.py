@@ -1,8 +1,8 @@
 import Team
 import Score
-
+import GUI
 class Game:
-    def __init__(self, t1:Team, t2:Team, score:Score, nSets:int, nGames:int,tieTarget:int, golden:bool):
+    def __init__(self, t1:Team, t2:Team, score:Score, nSets:int, nGames:int,tieTarget:int, golden:bool, gui):
         self.__score__  = score
         self.__teamOne__= t1
         self.__teamTwo__= t2
@@ -11,21 +11,7 @@ class Game:
         self.__golden__ = golden
         self.__tieTarget__ = tieTarget
 
-    #0-0 1-15 2-30 3-40 4-45/AD
-    def playGame(self):
-        while True:
-            team=input()
-            if not team.isnumeric():
-                continue 
-            pointWon = int(team)
-            if pointWon > 2 or pointWon < 0:
-                continue
-
-
-            result=self.__score__.newPoint(pointWon)
-            self.__displayFullScoreSheet__()
-            if result:
-                print("Finished")
+   
     
 
     def __displayFullScoreSheet__(self):
